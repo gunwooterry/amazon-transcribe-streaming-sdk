@@ -14,7 +14,7 @@
 
 import re
 from binascii import unhexlify
-from typing import Optional
+from typing import List, Optional
 
 from amazon_transcribe import AWSCRTEventLoop
 from amazon_transcribe.auth import AwsCrtCredentialResolver, CredentialResolver
@@ -86,8 +86,8 @@ class TranscribeStreamingClient:
         language_model_name: Optional[str] = None,
         identify_language: Optional[bool] = False,
         preferred_language: Optional[str] = None,
-        identify_multiple_languages=False,
-        language_options=None,
+        identify_multiple_languages: Optional[bool] = None,
+        language_options: Optional[List[str]] = None,
     ) -> StartStreamTranscriptionEventStream:
         """Coordinate transcription settings and start stream.
 
